@@ -1,0 +1,71 @@
+﻿<Window x:Class="Y3Lec3Pr4Var3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Y3Lec3Pr4Var3"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" MaxHeight="600"
+        Title="MainWindow">
+    <Viewbox>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="1,2.5"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Menu>
+                <MenuItem x:Name="miAbout" Header="О программе"/>
+                <MenuItem x:Name="miExit" Header="Выход" Click="miExit_Click"/>
+            </Menu>
+
+            <Label x:Name="lName" Content="Имя:"/>
+            <TextBox x:Name="tbName"/>
+
+            <Label x:Name="lAge" Content="Возраст:"/>
+            <TextBox x:Name="tbAge" MaxLength="5"/>
+            <Label x:Name="lAge2Big" Content="Магистр Йода, пенсия начинается с 5676 года жизни, ну так, к слову"
+                   Foreground="Red" Visibility="Collapsed"/>
+
+            <Label x:Name="lGender" Content="Пол:"/>
+            <StackPanel x:Name="spGender" Orientation="Horizontal">
+                <RadioButton x:Name="rbGenderM" Content="Мужской" Margin="5"/>
+                <RadioButton x:Name="rbGenderF" Content="Женский" Margin="5"/>
+            </StackPanel>
+
+            <Label x:Name="lWeight" Content="Масса тела в кг"/>
+            <TextBox x:Name="tbWeight" MaxLength="4"/>
+
+            <Button x:Name="btnApplyChanges" Content="Создать" Click="btnApplyChanges_Click"/>
+
+            <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
+                <StatusBarItem Content="Имя -"/>
+                <StatusBarItem x:Name="sbiName" Content="{Binding Name, FallbackValue='N/A'}"/>
+
+                <Separator x:Name="sepNameAge"/>
+
+                <StatusBarItem Content="Возраст -"/>
+                <StatusBarItem x:Name="sbiAge" Content="{Binding Age, FallbackValue='N/A'}"/>
+                <StatusBarItem Content="кг" Visibility="Collapsed"/>
+
+                <Separator x:Name="sepAgeGender"/>
+
+                <StatusBarItem Content="Пол -"/>
+                <StatusBarItem x:Name="sbiGender" Content="{Binding Gender, FallbackValue='N/A'}"/>
+                <StatusBarItem Content="кг" Visibility="Collapsed"/>
+
+                <Separator x:Name="sepGenderWeight"/>
+
+                <StatusBarItem Content="Масса -"/>
+                <StatusBarItem x:Name="sbiWeight" Content="{Binding Weight, FallbackValue='N/A'}"/>
+                <StatusBarItem Content="кг" Visibility="Collapsed"/>
+
+            </StatusBar>
+        </StackPanel>
+    </Viewbox>
+</Window>
