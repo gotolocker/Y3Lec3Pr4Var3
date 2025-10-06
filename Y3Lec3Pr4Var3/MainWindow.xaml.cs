@@ -187,5 +187,31 @@ namespace Y3Lec3Pr4Var3
         {
             Close();
         }
+
+        private void miAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(
+                "Захаров Никита Романович ИСП-31" +
+                "\nПрактическая работа №4" +
+                "\nСоздать класс Man (человек), с полями: имя, возраст, пол и вес. Создать необходимые методы и свойства. Создать перегруженные методы SetParams, для установки параметров человека.");
+        }
+
+        private void btnDemonstartor_Click(object sender, RoutedEventArgs e)
+        {
+            if (somebody == null) somebody = new();
+
+            char gender = ' ';
+            if (rbGenderM.IsChecked == true) gender = 'M';
+            else if (rbGenderF.IsChecked == true) gender = 'F';
+
+            if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbAge.Text) && int.TryParse(tbAge.Text, out int age)
+                && gender != ' ' && !string.IsNullOrWhiteSpace(tbWeight.Text) && int.TryParse(tbWeight.Text, out int weight))
+            {
+                somebody.SetParams(age, tbName.Text, gender, weight);
+            }
+
+            DataContext = null;
+            DataContext = somebody;
+        }
     }
 }
