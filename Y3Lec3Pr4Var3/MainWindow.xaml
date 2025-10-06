@@ -28,9 +28,9 @@
             <TextBox x:Name="tbName"/>
 
             <Label x:Name="lAge" Content="Возраст:"/>
-            <TextBox x:Name="tbAge" MaxLength="5"/>
-            <Label x:Name="lAge2Big" Content="Магистр Йода, пенсия начинается с 5676 года жизни, ну так, к слову"
-                   Foreground="Red" Visibility="Collapsed"/>
+            <TextBox x:Name="tbAge" MaxLength="5" TextChanged="tbAge_TextChanged"/>
+            <Label x:Name="lAge2Big" Content="Магистр Йода, пенсия начинается с 5676 года жизни"
+                   Foreground="Red" Visibility="Collapsed" Margin="-2"/>
 
             <Label x:Name="lGender" Content="Пол:"/>
             <StackPanel x:Name="spGender" Orientation="Horizontal">

@@ -213,5 +213,11 @@ namespace Y3Lec3Pr4Var3
             DataContext = null;
             DataContext = somebody;
         }
+
+        private void tbAge_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbAge.Text.Length > 3) lAge2Big.Visibility = Visibility.Visible;
+            else lAge2Big.Visibility = Visibility.Collapsed;
+        }
     }
 }
