@@ -198,7 +198,7 @@ namespace Y3Lec3Pr4Var3
 
         private void btnDemonstartor_Click(object sender, RoutedEventArgs e)
         {
-            if (somebody == null) somebody = new();
+
 
             char gender = ' ';
             if (rbGenderM.IsChecked == true) gender = 'M';
@@ -207,6 +207,7 @@ namespace Y3Lec3Pr4Var3
             if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbAge.Text) && int.TryParse(tbAge.Text, out int age)
                 && gender != ' ' && !string.IsNullOrWhiteSpace(tbWeight.Text) && int.TryParse(tbWeight.Text, out int weight))
             {
+                if (somebody == null) somebody = new();
                 somebody.SetParams(age, tbName.Text, gender, weight);
             }
 
